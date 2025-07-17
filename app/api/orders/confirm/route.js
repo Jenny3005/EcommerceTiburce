@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
 import db from '@/lib/db';  // ta connexion base données (à adapter)
-import { verifyPaymentToken } from '@/lib/payment'; // à créer (fonction qui valide le token auprès du fournisseur)
+import { verifyKkiapayTransaction} from '@/lib/kkiapay'; // à créer (fonction qui valide le token auprès du fournisseur)
 
 export async function POST(request) {
   try {
-    const { userId, cartItems, paymentToken } = await request.json();
+    const { userId, cartItems, transactionId } = await request.json();
 
     // Vérifier que le paiement est valide avec le fournisseur
-    const isValid = await verifyPaymentToken(paymentToken);
+    const isValid = await verifyKkiapayTransaction(transactionId);
     if (!isValid) {
       return NextResponse.json({ error: 'Paiement invalide' }, { status: 400 });
     }
@@ -26,7 +26,7 @@ export async function POST(request) {
     await db.payment.create({
       data: {
         orderId: order.id,
-        token: paymentToken,
+        token: transactionId,
         amount: calculateTotal(cartItems),
         createdAt: new Date(),
       },
