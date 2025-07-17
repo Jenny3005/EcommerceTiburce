@@ -1,6 +1,6 @@
 // app/api/categories/route.js
 import { NextResponse } from 'next/server';
-import pool from '../../../../lib/db'; // Vérifie bien le chemin
+import pool from '../../../lib/db'; // Vérifie bien le chemin
 
 export async function GET(req) {
   let connection;
