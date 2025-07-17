@@ -118,7 +118,7 @@ const OrderSummary = () => {
     const totalAmountToPay = getCartCount() > 0 ? getCartAmount() + Math.floor(getCartAmount() * 0.02) : 0;
     
     // Récupération de la clé publique Kkiapay
-    const KAKAPAY_PUBLIC_API_KEY: string | undefined = process.env.NEXT_PUBLIC_KKIAPAY_PUBLIC_API_KEY;
+    const KAKAPAY_PUBLIC_API_KEY: string | undefined = process.env.NEXT_PUBLIC_KAKAPAY_PUBLIC_API_KEY;
 
     // Effet pour définir l'adresse par défaut
     useEffect(() => {

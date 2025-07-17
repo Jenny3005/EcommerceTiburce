@@ -43,6 +43,8 @@ export async function POST(req) {
       'UPDATE users SET resetPasswordToken = ?, resetPasswordExpires = ? WHERE id = ?',
       [resetToken, expiresAt, user.id]
     );
+    console.log('Envoi du mail à :', email);
+
 
     // 4. Envoyer l'e-mail de réinitialisation du mot de passe
     const resetLink = `${process.env.NEXT_PUBLIC_BASE_URL}/reinitialiser-mot-de-passe?token=${resetToken}`; // L'URL de votre page de réinitialisation de mot de passe frontend
