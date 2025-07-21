@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 // Assurez-vous que le chemin vers authOptions est correct
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'; 
+import { authOptions } from '@/lib/auth';
 import { v4 as uuidv4 } from 'uuid'; 
 
 /**

@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 // CORRECTION DU CHEMIN D'IMPORTATION
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'; 
+import { authOptions } from '@/lib/auth';
 import pool from '../../../../lib/db'; // Assurez-vous que le chemin est correct
 
 // Fonction utilitaire d'autorisation pour les admins

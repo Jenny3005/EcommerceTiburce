@@ -3,7 +3,7 @@
 import { NextResponse } from 'next/server';
 import pool from '../../../../../lib/db'; // Adaptez le chemin selon votre projet
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'; // Adaptez le chemin selon votre projet
+import { authOptions } from '@/lib/auth';// Adaptez le chemin selon votre projet
 
 export async function DELETE(request, { params }) {
     const session = await getServerSession(authOptions);

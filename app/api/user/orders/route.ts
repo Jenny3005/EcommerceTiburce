@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server';
 import pool from '../../../../lib/db'; // Assurez-vous que le chemin est correct pour votre connexion DB
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'; // Assurez-vous que le chemin est correct
+import { authOptions } from "@/lib/auth"; // Assurez-vous que le chemin est correct
 
 export async function GET(request) {
     const session = await getServerSession(authOptions);
